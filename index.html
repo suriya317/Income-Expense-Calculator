@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income Expense Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css"
+    />
+  </head>
+  <body class="bg-gray-300">
+    <div class="container mx-auto p-5">
+      <h1
+        class="text-3xl text-yellow-700 font-serif font-bold text-center m-10"
+      >
+        Income Expense Calculator
+      </h1>
+
+      <div class="bg-white p-5 rounded shadow-md m-auto">
+        <div class="flex mb-4"></div>
+        <input
+          type="text"
+          id="description"
+          placeholder="Description"
+          class="border border-gray-400 p-2 flex-1 mr-2 w-1/3 rounded"
+          required
+        />
+        <input
+          type="number"
+          id="amount"
+          placeholder="Amount"
+          class="border border-gray-400 p-2 flex-1 mr-2 w-1/3 rounded"
+          required
+        />
+        <br /><br />
+        <select id="type" class="border border-gray-400 p-2 mr-2 w-1/3 rounded">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <button
+          onclick="addEntry()"
+          id="addEntry"
+          class="bg-blue-500 text-white p-2 w-fit shadow-xl rounded hover:bg-blue-600"
+        >
+          Add Entry
+        </button>
+        <button
+          onclick="resetFields()"
+          id="reset"
+          class="bg-gray-500 text-white p-2 w-fit shadow-xl rounded hover:bg-gray-600 ml-2"
+        >
+          Reset
+        </button>
+      </div>
+
+      <div class="flex place-content-center mt-10 mb-4">
+        <span class="font-semibold mr-2">Filter:</span>
+        <label class="mr-2"
+          ><input
+            type="radio"
+            name="filter"
+            value="all"
+            checked
+            class="form-radio"
+          /><span class="ml-2">All</span></label
+        ><label class="mr-2"
+          ><input
+            type="radio"
+            name="filter"
+            value="income"
+            class="form-radio"
+          /><span class="ml-2">Income</span></label
+        ><label
+          ><input
+            type="radio"
+            name="filter"
+            value="expense"
+            class="form-radio"
+          /><span class="ml-2">Expense</span></label
+        >
+      </div>
+
+      <div id="Summary" class="grid place-content-center mb-5">
+        <h1 class="grid place-items-center uppercase text-xl font-bold my-5">
+          Summary Report
+        </h1>
+        <h2 class="text-lg">Total Income: ₹ <span id="totalIncome">0</span></h2>
+        <h2 class="text-lg">
+          Total Expenses: ₹ <span id="totalExpenses">0</span>
+        </h2>
+        <h2 class="text-lg">Net Balance: ₹ <span id="netBalance">0</span></h2>
+      </div>
+
+      <ul id="entryList" class="list-none"></ul>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
